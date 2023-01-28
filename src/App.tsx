@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { CssBaseline } from '@mui/material';
+import { AppLayout } from './navigation/components/appLayaout/AppLayout';
+import { AppRouter } from './navigation/AppRouter';
+import { AppContextProvider } from './shared/contextProvider/AppContextProvider';
+import { CustomThemeProvider } from './shared/themeProvider/ThemeProvider';
+import { inputGlobalStyles } from '../src/styles/global'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContextProvider>
+      <CustomThemeProvider>
+        <CssBaseline>
+          <AppRouter>
+            {inputGlobalStyles}
+            <AppLayout />
+          </AppRouter>
+        </CssBaseline>
+      </CustomThemeProvider>
+    </AppContextProvider>
   );
 }
 
-export default App;
+export { App };
