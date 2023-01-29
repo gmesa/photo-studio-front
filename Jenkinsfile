@@ -11,6 +11,7 @@ pipeline {
         }
         stage("Build stage") {
             steps {
+               bat "npm config set legacy-peer-deps true"
                bat 'npm install'
             }
         }
