@@ -1,10 +1,8 @@
 pipeline {
-  agent any
+    agent any
     
-  tools {nodejs "node"}
-
-  pipeline {
-     agent any
+    tools {NodeJS "node"}
+    
      stages {
         stage("Checkout Stage") {
             steps {
@@ -24,4 +22,3 @@ pipeline {
     }
 }  
   
-}
