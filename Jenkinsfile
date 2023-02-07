@@ -22,7 +22,8 @@ pipeline {
         }
         stage("Deploy stage") {
             steps {
-               bat 'npm run start'           
+               bat 'npm run start &' 
+               bat 'sleep 1'          
             }
         }
         
