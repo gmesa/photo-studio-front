@@ -22,7 +22,7 @@ pipeline {
         }
         stage("Deploy stage") {
             steps {
-               bat 'npm run serve-prod'           
+               bat 'npm run start'           
             }
         }
         
