@@ -4,6 +4,10 @@ pipeline {
             image 'node:19-alpine3.16' 
             args '-p 3000:3000' 
         }
+    }
+
+    enviroment{
+        dockerhub=credentials('hubCredentials')
     }   
     
      stages {
@@ -17,6 +21,10 @@ pipeline {
                sh 'npm config set legacy-peer-deps true'
                sh 'npm install'
             }
+        }
+        stage("Build image"){
+
+            sh 'docker build -t photo-studio-front .'
         }
 
         
