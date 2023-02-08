@@ -32,7 +32,14 @@ pipeline {
                     sh 'docker tag photo-studio-front gmesac87/photo-studio-front'
                     sh "echo $PASS | docker login -u $USER --password-stdin"
                     sh 'docker push gmesac87/photo-studio-front'
+                    sh 'docker logout'
                 }
+            }
+        }
+        stage("Run local container"){
+
+            steps{
+                 sh 'docker run -d --rm --name photo-studio-front-app gmesac87/photo-studio-front'
             }
         }
     }
