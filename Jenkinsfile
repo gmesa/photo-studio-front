@@ -29,9 +29,9 @@ pipeline {
 
             steps{
                  withCredentials([usernamePassword(credentialsId: 'hubcredential', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-                    sh 'docker tag gmesa/photo-studio-front .'
+                    sh 'docker tag photo-studio-front gmesac87/photo-studio-front'
                     sh "echo $PASS | docker login -u $USER --password-stdin"
-                    sh 'docker push gmesa/sample-react-app'
+                    sh 'docker push gmesac87/photo-studio-front'
                 }
             }
         }
