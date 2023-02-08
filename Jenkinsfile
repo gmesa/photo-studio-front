@@ -4,11 +4,7 @@ pipeline {
             image 'node:19-alpine3.16' 
             args '-p 3000:3000' 
         }
-    }
-
-    enviroment{
-        dockerhub=credentials('hubCredentials')
-    }   
+    }    
     
      stages {
         stage("Checkout Stage") {
@@ -26,9 +22,7 @@ pipeline {
             steps {
                sh 'docker build -t photo-studio-front .'
             }            
-        }
-
-        
+        }        
     }
 }  
   
