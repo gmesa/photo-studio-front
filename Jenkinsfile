@@ -39,7 +39,7 @@ pipeline {
         stage("Run local container"){
 
             steps{
-                 sh 'docker run -d --rm --name photo-studio-front-app gmesac87/photo-studio-front'
+                 sh 'docker run -d --rm --name photo-studio-front-app -p 3000:3000 gmesac87/photo-studio-front'
             }
         }
     }
