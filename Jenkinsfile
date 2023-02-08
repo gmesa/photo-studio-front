@@ -24,7 +24,17 @@ pipeline {
             steps {
                sh 'docker build -t photo-studio-front .'
             }            
-        }                 
+        } 
+        stage("Push to docker hub"){
+
+            steps{
+                 withCredentials([usernamePassword(credentialsId: 'hubcredential', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                    sh 'docker tag gmesa/photo-studio-front .'
+                    sh "echo $PASS | docker login -u $USER --password-stdin"
+                    sh 'docker push gmesa/sample-react-app'
+                }
+            }
+        }
     }
 }  
   
