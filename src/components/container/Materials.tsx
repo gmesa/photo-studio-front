@@ -312,7 +312,7 @@ const Materials: React.FC<MaterialProps> = (props: MaterialProps) => {
                                 <Alert
                                     severity='error'
                                     sx={{ background: 'none', color: theme.palette.error.main, margin: '5px 0' }}>
-                                    Are you sure do you want to delete this material ?
+                                    Are you sure do you want to delete this material ?.
                                 </Alert>}
                         </DialogContent>
                         <DialogActions sx={tableStyles.actions}>
