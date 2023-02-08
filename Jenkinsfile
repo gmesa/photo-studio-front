@@ -23,8 +23,9 @@ pipeline {
             }
         }
         stage("Build image"){
-
-            sh 'docker build -t photo-studio-front .'
+            steps {
+               sh 'docker build -t photo-studio-front .'
+            }            
         }
 
         
