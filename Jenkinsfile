@@ -18,7 +18,13 @@ pipeline {
                sh 'npm config set legacy-peer-deps true'
                sh 'npm install'
             }
-        }                
+        }
+        
+        stage("Build image"){
+            steps {
+               sh 'docker build -t photo-studio-front .'
+            }            
+        }                 
     }
 }  
   
