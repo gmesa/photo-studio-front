@@ -4,11 +4,12 @@ FROM node:19-alpine3.16
 # Set the working directory to /app inside the container
 WORKDIR /app
 # Copy app files
-COPY . .
+COPY ["package.json","package-lock.json", "/app/"]
 # ==== BUILD =====
 # Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
 RUN npm config set legacy-peer-deps true 
 RUN npm install 
+COPY [".", "/app/"]
 # Build the app
 RUN npm run build
 # ==== RUN =======
