@@ -40,7 +40,7 @@ pipeline {
 
             steps{
                  sh 'docker rm -f photo-studio-front-app'
-                 sh 'docker run -d --rm --name photo-studio-front-app -p 3000:3000 gmesac87/photo-studio-front'
+                 sh 'docker run -d --name photo-studio-front-app -p 3000:3000 gmesac87/photo-studio-front'
             }
         }
     }
